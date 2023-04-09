@@ -7,7 +7,7 @@ class InterstitialState(GameState):
     def __init__(self, game, msg, waitTimeMs, nextState):
         super(InterstitialState, self).__init__(game)
         self.nextState = nextState
-        self.font = BitmapFont('images/fasttracker2-style_12x12.png', 12, 12)
+        self.font = BitmapFont('images/placeholder_font.png', 12, 12)
         self.message = msg
         self.waitTimer = waitTimeMs
         

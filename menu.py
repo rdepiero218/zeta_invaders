@@ -7,7 +7,7 @@ class MainMenuState(GameState):
     def __init__(self, game):
         super(MainMenuState, self).__init__(game)
         self.playGameState = None
-        self.font = BitmapFont('images/fasttracker2-style_12x12.png', 12, 12)
+        self.font = BitmapFont('images/placeholder_font.png', 12, 12)
         self.index = 0
         self.inputTick = 0
         self.menuItems = ['Start Game', 'Quit']
@@ -40,7 +40,7 @@ class MainMenuState(GameState):
                 self.game.changeState(self.playGameState)
                 
     def draw(self, surface):
-        self.font.center(surface, 'Invaders! Frome Space!', 48)
+        self.font.center(surface, 'Zeta Invaders! From Space!', 48)
         
         count = 0
         y = surface.get_rect().height - len(self.menuItems) * 160

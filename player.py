@@ -63,16 +63,18 @@ class PlayerLivesView(object):
     def __init__(self, player, imgpath):
         self.player = player
         self.image = pygame.image.load(imgpath)
-        self.font = BitmapFont('images/fasttracker2-style_12x12.png', 12, 12)
+        self.font = BitmapFont('images/placeholder_font.png', 12, 12)
         
     def render(self, surface):
         x = 8
+
+        self.font.draw(surface, 'LIVES ', (800-32)-(3*40)-(6*8), 24)
         
         for life in range(0, self.player.model.lives):
-            surface.blit(self.image, (x, 8, 32, 32))
+            surface.blit(self.image, ((800-32)-x, 8, 32, 32))
             x += 40
             
-        self.font.draw(surface, '1 UP SCORE: ' + str(self.player.model.score), 160, 12)
+        self.font.draw(surface, 'SCORE  ' + str(self.player.model.score), 32, 24)
         
         
         
@@ -88,8 +90,8 @@ if (__name__ == '__main__'):
     black = pygame.Color(0, 0, 0)
     
     player = PlayerController(0, 400)
-    playerView = PlayerView(player, 'images/ship.png')
-    playerLivesView = PlayerLivesView(player, 'images/ship.png')
+    playerView = PlayerView(player, 'images/tank.png')
+    playerLivesView = PlayerLivesView(player, 'images/tank.png')
     
     while True:
         for event in pygame.event.get():
