@@ -129,7 +129,7 @@ class CollisionController(object):
 			if (self.player.model.lives > 0):
 				self.player.pause(True)
 				getReadyState = InterstitialState(self.game, 'Get Ready!', 2000, self.playGameState)
-				self.expctrl.list.add((self.player.model.x, self.player.model.y, 6, 50), getReadyState)
+				self.expCtrl.list.add((self.player.model.x, self.player.model.y, 6, 50), getReadyState)
 				
 			self.playerDie.play()
 				

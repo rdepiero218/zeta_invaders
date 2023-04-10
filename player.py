@@ -35,6 +35,7 @@ class PlayerController(object):
         
         if(keys[K_RIGHT] and self.model.x < 800 - 32):
             self.model.x += (gameTime / 1000.0) * self.model.speed
+            
         elif (keys[K_LEFT] and self.model.x > 0):
             self.model.x -= (gameTime / 1000.0) * self.model.speed
             

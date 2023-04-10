@@ -47,6 +47,8 @@ class PlayGameState(GameState):
 			
 		if (self.player_controller.model.lives == 0):
 			self.game.changeState(self.gameOverState)
+			game_over_sound = pygame.mixer.Sound('audio/dead-8bit-41400.mp3')
+			game_over_sound.play()
 			
 		if (len(self.swarm_controller.invaders) == 0):
 			self.swarmSpeed -= 50
@@ -56,7 +58,7 @@ class PlayGameState(GameState):
 				
 			self.swarm_controller.reset(48, self.swarmSpeed)
 			
-			levelUpMessage = InterstitialState(invadersGame, 'Congratulations! Level Up!', 2000, self)
+			levelUpMessage = InterstitialState(self.game, 'Congratulations! Level Up!', 2000, self)
 			self.game.changeState(levelUpMessage)
 				
 				

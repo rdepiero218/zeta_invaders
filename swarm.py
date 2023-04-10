@@ -40,19 +40,45 @@ class SwarmController(object):
 		
 		self.currentShooter = 0 # current shooting alien
 		
-		for y in range(7):
-			for x in range(10):
-				invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, y % 3)
-				self.invaders.append(invader)
+		# OG version
+		# for y in range(7):
+		# 	for x in range(10):
+		# 		invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, y % 3)
+		# 		self.invaders.append(invader)
+		self.init_rows = 5
+		self.init_cols = 11
+
+		for y in range(self.init_rows):
+			if y == 0:
+				for x in range(self.init_cols):
+					invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, 0)
+					self.invaders.append(invader)
+			if y > 0 and y < 3:
+				for x in range(self.init_cols):
+					invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, 1)
+					self.invaders.append(invader)
+			if y >= 3:
+				for x in range(self.init_cols):
+					invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, 2)
+					self.invaders.append(invader)
 	
 	def reset(self, offsety, ticks):
 		self.currentframecount = ticks
 		self.framecount = ticks
 		
-		for y in range(7):
-			for x in range(10):
-				invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, y % 3)
-				self.invaders.append(invader)
+		for y in range(self.init_rows):
+			if y == 0:
+				for x in range(self.init_cols):
+					invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, 0)
+					self.invaders.append(invader)
+			if y > 0 and y < 3:
+				for x in range(self.init_cols):
+					invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, 1)
+					self.invaders.append(invader)
+			if y >= 3:
+				for x in range(self.init_cols):
+					invader = InvaderModel(160 + (x *48) + 8, (y *32) + offsety, 2)
+					self.invaders.append(invader)
 				
 	def update(self, gameTime):
 		self.bullets.update(gameTime)
@@ -62,7 +88,7 @@ class SwarmController(object):
 		if self.framecount < 0:
 			if self.movedown:
 				self.movedown = False
-				mvesideways = False
+				movesideways = False
 				self.sx *= -1
 				self.bulletDropTime -= 250
 				if (self.bulletDropTime < 1000):

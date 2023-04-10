@@ -19,7 +19,8 @@ class GameState(object):
 		
 
 class RaspberryPiGame(object):
-	
+
+	# INITIALIZE CLASS
 	def __init__(self, gameName, width, height):
 		
 		pygame.init()
@@ -30,19 +31,21 @@ class RaspberryPiGame(object):
 		self.background = pygame.Color(0,0,0)
 		self.currentState = None
 		
+	# CHANGE CURRENT STATE If newState is 'None' game terminates
 	def changeState(self, newState):
 		
-		if self.currentState != None:
+		if (self.currentState != None):
 			self.currentState.onExit()
 			
-		if newState == None:
+		if (newState == None):
 			pygame.quit()
 			sys.exit()
 			
 		oldState = self.currentState
 		self.currentState = newState
 		newState.onEnter(oldState)
-		
+	
+	# Run the game
 	def run(self, initialState):
 		
 		self.changeState(initialState)

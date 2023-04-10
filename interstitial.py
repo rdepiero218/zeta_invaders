@@ -4,12 +4,14 @@ from bitmapfont import *
 from raspigame import *
 
 class InterstitialState(GameState):
+    
     def __init__(self, game, msg, waitTimeMs, nextState):
         super(InterstitialState, self).__init__(game)
         self.nextState = nextState
         self.font = BitmapFont('images/placeholder_font.png', 12, 12)
         self.message = msg
         self.waitTimer = waitTimeMs
+
         
     def update(self, gameTime):
         self.waitTimer -= gameTime

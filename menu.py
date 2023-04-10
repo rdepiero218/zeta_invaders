@@ -40,10 +40,10 @@ class MainMenuState(GameState):
                 self.game.changeState(self.playGameState)
                 
     def draw(self, surface):
-        self.font.center(surface, 'Zeta Invaders! From Space!', 48)
+        self.font.center(surface, 'ZETA INVADERS', 48)
         
         count = 0
-        y = surface.get_rect().height - len(self.menuItems) * 160
+        y = surface.get_rect().height - len(self.menuItems) * 50
         
         for item in self.menuItems:
             itemText = '   '
@@ -52,6 +52,6 @@ class MainMenuState(GameState):
                 itemText = "> "
                 
             itemText += item
-            self.font.draw(surface, itemText, 25, y)
+            self.font.draw(surface, itemText, 300, y)
             y += 24
             count += 1
