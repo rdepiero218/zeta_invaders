@@ -27,6 +27,7 @@ class InvaderModel(object):
 
 
 class SwarmController(object):
+
     def __init__(self, scrwidth, offsety, initialframeticks):
         self.currentframecount = initialframeticks
         self.framecount = initialframeticks
@@ -160,7 +161,6 @@ class SwarmController(object):
             height = (topmost - bottommost) + 32
 
             return (leftmost, bottommost, width, height)
-
 
 class InvaderView:
     def __init__(self, swarm, imgpath):
