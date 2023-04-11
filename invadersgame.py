@@ -8,7 +8,6 @@ from collision import *
 
 
 class PlayGameState(GameState):
-
     def __init__(self, game, gameOverState):
         super(PlayGameState, self).__init__(game)
         self.controllers = None
