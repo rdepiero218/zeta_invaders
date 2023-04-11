@@ -12,7 +12,9 @@ mainMenuState = MainMenuState(invadersGame)
 gameOverState = InterstitialState(invadersGame, 'G A M E  O V E R !', 5000, mainMenuState)
 
 playGameState = PlayGameState(invadersGame, gameOverState)
+
 getReadyState = InterstitialState(invadersGame, 'Get Ready!', 2000, playGameState)
+
 mainMenuState.setPlayState(getReadyState)
 
 invadersGame.run(mainMenuState)

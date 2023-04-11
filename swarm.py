@@ -111,8 +111,8 @@ class SwarmController(object):
 					i.x += self.sx
 					
 			x, y, width, height = self.getarea()
-			## check get area
-			print('x=', x, 'y=', y, 'width=', width, 'height=', height)
+			# ## check get area
+			# print('x=', x, 'y=', y, 'width=', width, 'height=', height)
 			
 			if (x <= 0 and self.sx < 0) or (x + width >= 800 and self.sx > 0):
 				self.movedown = True
@@ -154,7 +154,7 @@ class SwarmController(object):
 			width = (rightmost - leftmost) + 32
 			height = (topmost - bottommost) + 32
 			
-			return (leftmost, bottommost, width, height)
+		return (leftmost, bottommost, width, height)
 			
 class InvaderView:
 	

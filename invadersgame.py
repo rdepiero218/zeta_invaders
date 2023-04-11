@@ -20,6 +20,11 @@ class PlayGameState(GameState):
 		
 	def onEnter(self, previousState):
 		self.player_controller.pause(False)
+		# self.resetGame()
+
+	# def resetGame(self):
+	# 	self.swarm_controller = SwarmController(800, 48, self.swarmSpeed)
+	# 	self.player_controller = PlayerController(0, 540)
 		
 	def initialize(self):
 		self.swarm_controller = SwarmController(800, 48, self.swarmSpeed)
