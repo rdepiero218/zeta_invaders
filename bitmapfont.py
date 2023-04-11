@@ -13,7 +13,6 @@ class BitmapFont(object):
         self.rows = height / self.cellHeight
 
     def draw(self, surface, msg, x, y):
-
         for c in msg:
             ch = self.toIndex(c)
             ox = (ch % self.cols) * self.cellWidth

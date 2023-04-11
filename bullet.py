@@ -37,7 +37,6 @@ class BulletController(object):
         self.bullets.remove(bullet)
 
     def update(self, gameTime):
-
         killList = []
 
         if self.countdown > 0:

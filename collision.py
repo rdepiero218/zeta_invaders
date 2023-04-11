@@ -29,7 +29,6 @@ class ExplosionModelList(object):
         self.explosions.append(exp)
 
     def cleanUp(self):
-
         killList = []
 
         for e in self.explosions:
@@ -94,12 +93,10 @@ class CollisionController(object):
         self.playerDie = pygame.mixer.Sound("audio/playerdie.wav")
 
     def update(self, gameTime):
-
         aliens = []
         bullets = []
 
         for b in self.BulletController.bullets:
-
             if bullets.count(b) > 0:
                 continue
 

@@ -4,6 +4,7 @@ from pygame.locals import *
 from bullet import *
 from bitmapfont import *
 
+
 ## PLAYER MODEL
 class PlayerModel(object):
     def __init__(self, x, y):
@@ -97,7 +98,6 @@ class PlayerLivesView(object):
 ### FOR TESTING CLASS
 
 if __name__ == "__main__":
-
     pygame.init()
     fpsClock = pygame.time.Clock()
 

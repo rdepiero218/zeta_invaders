@@ -20,10 +20,8 @@ class GameState(object):
 
 
 class RaspberryPiGame(object):
-
     # INITIALIZE CLASS
     def __init__(self, gameName, width, height):
-
         pygame.init()
         pygame.display.set_caption(gameName)
 
@@ -34,7 +32,6 @@ class RaspberryPiGame(object):
 
     # CHANGE CURRENT STATE If newState is 'None' game terminates
     def changeState(self, newState):
-
         if self.currentState != None:
             self.currentState.onExit()
 
@@ -48,11 +45,9 @@ class RaspberryPiGame(object):
 
     # Run the game
     def run(self, initialState):
-
         self.changeState(initialState)
 
         while True:
-
             for event in pygame.event.get():
                 if event.type == QUIT:
                     pygame.quit()
