@@ -6,12 +6,15 @@ from bitmapfont import *
 
 ## PLAYER MODEL
 class PlayerModel(object):
+    
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self.lives = 3
         self.score = 0
         self.speed = 100 # pixels per second
+        self.kill_self = False
+        
         
 
 ## PUT TANK AT BOTTOM OF SCREEN
@@ -44,9 +47,19 @@ class PlayerController(object):
             y = self.model.y - 16
             self.bullets.addBullet(x, y)
             self.shootSound.play()
+        if(keys[K_k]):
+            self.model.kill_self = True
+
             
     def hit(self, x, y, width, height): # test collisions
+        if self.model.kill_self:
+            self.model.kill_self = False
+            return True
         return (x >= self.model.x and y >= self.model.y and x + width <= self.model.x + 32 and y + height <= self.model.y + 32)
+    
+    def reset(self , x,y):
+        self.model = PlayerModel(x, y) 
+
 
 
 ## RENDERS PLAYER TANK

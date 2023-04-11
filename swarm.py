@@ -63,6 +63,7 @@ class SwarmController(object):
 					self.invaders.append(invader)
 	
 	def reset(self, offsety, ticks):
+		self.invaders = []
 		self.currentframecount = ticks
 		self.framecount = ticks
 		
