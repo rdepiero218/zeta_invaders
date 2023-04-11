@@ -49,6 +49,7 @@ class PlayGameState(GameState):
 			self.game.changeState(self.gameOverState)
 			game_over_sound = pygame.mixer.Sound('audio/dead-8bit-41400.mp3')
 			game_over_sound.play()
+			self.player_controller.reset(0,540)
 			
 		if (len(self.swarm_controller.invaders) == 0):
 			self.swarmSpeed -= 50

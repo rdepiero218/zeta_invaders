@@ -12,6 +12,7 @@ class PlayerModel(object):
         self.lives = 3
         self.score = 0
         self.speed = 100 # pixels per second
+        self.suicide = False
         
 
 ## PUT TANK AT BOTTOM OF SCREEN
@@ -44,9 +45,19 @@ class PlayerController(object):
             y = self.model.y - 16
             self.bullets.addBullet(x, y)
             self.shootSound.play()
+        if(keys[K_k]):
+            self.suicide = True
+
             
     def hit(self, x, y, width, height): # test collisions
+        if self.suicide:
+            self.suicide = False
+            return True
         return (x >= self.model.x and y >= self.model.y and x + width <= self.model.x + 32 and y + height <= self.model.y + 32)
+    
+    def reset(self , x,y):
+        self.model = PlayerModel(x, y) 
+
 
 
 ## RENDERS PLAYER TANK
