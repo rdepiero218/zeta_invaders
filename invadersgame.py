@@ -40,7 +40,13 @@ class PlayGameState(GameState):
 		
 		self.controllers = [self.swarm_controller, self.player_controller, collision_controller, explosion_controller]
 		
-		
+	
+	def reset(self):
+		self.swarmSpeed = 500
+		self.player_controller.reset(0,540)
+		self.swarm_controller.reset(48, self.swarmSpeed)
+
+
 	def update(self, gameTime):
 		for ctrl in self.controllers:
 			ctrl.update(gameTime)
@@ -49,7 +55,8 @@ class PlayGameState(GameState):
 			self.game.changeState(self.gameOverState)
 			game_over_sound = pygame.mixer.Sound('audio/dead-8bit-41400.mp3')
 			game_over_sound.play()
-			self.player_controller.reset(0,540)
+			self.reset()
+
 			
 		if (len(self.swarm_controller.invaders) == 0):
 			self.swarmSpeed -= 50
