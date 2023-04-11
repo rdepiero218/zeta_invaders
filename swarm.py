@@ -117,8 +117,9 @@ class SwarmController(object):
                     i.x += self.sx
 
             x, y, width, height = self.getarea()
-            ## check get area
-            print("x=", x, "y=", y, "width=", width, "height=", height)
+
+            ## check get area TODO[dchapmanfw] add logging
+            # print("x=", x, "y=", y, "width=", width, "height=", height)
 
             if (x <= 0 and self.sx < 0) or (x + width >= 800 and self.sx > 0):
                 self.movedown = True
