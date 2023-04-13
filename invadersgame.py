@@ -45,7 +45,7 @@ class PlayGameState(GameState):
         )
 
         explosion_view = ExplosionView(
-            explosion_controller.list.explosions, "images/explosion_me.png", 32, 32
+            explosion_controller.list.explosions, "images/explosion.png", 32, 32
         )
 
         self.renderers = [
