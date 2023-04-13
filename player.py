@@ -66,7 +66,6 @@ class PlayerController(object):
 
 ## RENDERS PLAYER TANK
 
-
 class PlayerView(object):
     def __init__(self, player, imgpath):
         self.player = player

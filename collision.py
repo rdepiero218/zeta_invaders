@@ -80,7 +80,7 @@ class ExplosionController(object):
 
 
 class CollisionController(object):
-    def __init__(self, game, swarm, player, explosionController, playState):
+    def __init__(self, game, swarm, player, explosionController, playState): ## add barns here?
         self.swarm = swarm
         self.player = player
         self.game = game
