@@ -22,12 +22,9 @@ HSU = False
 if SPI:
     PN532_SPI = Pn532Spi(Pn532Spi.SS0_GPIO8)
     nfc = Pn532(PN532_SPI)
-# When the number after #elif set as 1, it will be switch to HSU Mode
 elif HSU:
     PN532_HSU = Pn532Hsu(0)
     nfc = Pn532(PN532_HSU)
-
-# When the number after #if & #elif set as 0, it will be switch to I2C Mode
 elif I2C:
     PN532_I2C = Pn532I2c(1)
     nfc = Pn532(PN532_I2C)
